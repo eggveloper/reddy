@@ -16,6 +16,7 @@ public:
     Game();
     virtual ~Game();
 
+    void updateDt();
     void updateSFMLEvents();
     void update();
     void render();
@@ -24,6 +25,9 @@ public:
 private:
     sf::RenderWindow *sfWindow;
     sf::Event sfEvent;
+    sf::Clock sfDtClock;
+
+    float dt;
 
     void initWindow();
 };

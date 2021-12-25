@@ -12,6 +12,10 @@ Game::~Game() {
     delete this->sfWindow;
 }
 
+void Game::updateDt() {
+    this->dt = this->sfDtClock.restart().asSeconds();
+}
+
 void Game::updateSFMLEvents() {
     while (this->sfWindow->pollEvent(this->sfEvent)) {
         if (this->sfEvent.type == sf::Event::Closed) {
@@ -32,6 +36,7 @@ void Game::render() {
 
 void Game::run() {
     while (this->sfWindow->isOpen()) {
+        this->updateDt();
         this->update();
         this->render();
     }
