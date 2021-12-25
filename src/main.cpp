@@ -1,11 +1,9 @@
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
-
-#include "SFML/Graphics.hpp"
+#include "Game.hpp"
 
 int main() {
-    std::cout << "hello world" << std::endl;
+    Game game;
+
+    game.run();
 
     return 0;
 }

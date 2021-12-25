@@ -8,7 +8,7 @@ HDR = ${wildcard src/*.hpp}
 # add more headers here with HDR += ${wildcard path/to/somewhere/*.hpp}
 
 OBJ = ${SRC:.cpp=.o}
-EXEC = cap
+EXEC = reddy
 
 all: ${OBJ} ${EXEC} ${HDR}
 
@@ -20,11 +20,12 @@ release: all
 
 ${EXEC}: ${OBJ}
 	@g++ $^ -o $@ ${LDFLAGS}
-	$(info [LD] $^)
+	$(info [LD] Linking finished.)
 
 %.o: %.cpp
 	@g++ ${CFLAGS} $^ -o $@
 	$(info [CC] $^)
 
 clean:
-	@rm -rf src/*.o ${EXEC}
+	@rm -rf ${OBJ} ${EXEC}
+	$(info [RM] Removed object files and executable (if available).)
