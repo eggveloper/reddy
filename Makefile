@@ -20,12 +20,13 @@ release: all
 
 ${EXEC}: ${OBJ}
 	@g++ $^ -o $@ ${LDFLAGS}
-	$(info [LD] Linking finished.)
+	$(info [  LINKER  ] Linking finished.)
 
 %.o: %.cpp
 	@g++ ${CFLAGS} $^ -o $@
-	$(info [CC] $^)
+	$(info [ COMPILER ] $^)
 
+clear: clean
 clean:
 	@rm -rf ${OBJ} ${EXEC}
-	$(info [RM] Removed object files and executable (if available).)
+	$(info [  REMOVE  ] Removed object files and executable (if available).)
