@@ -2,6 +2,8 @@
 
 void Game::initWindow() {
     this->sfWindow = new sf::RenderWindow(sf::VideoMode(800, 600), "reddy");
+    this->sfWindow->setFramerateLimit(120);
+    this->sfWindow->setVerticalSyncEnabled(false);
 }
 
 Game::Game() {

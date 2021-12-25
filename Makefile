@@ -10,7 +10,11 @@ HDR = ${wildcard src/*.hpp}
 OBJ = ${SRC:.cpp=.o}
 EXEC = reddy
 
-all: ${OBJ} ${EXEC} ${HDR}
+all: folders ${OBJ} ${EXEC} ${HDR}
+
+folders:
+	@mkdir -p build/
+	@mkdir -p build/objs/
 
 debug: CFLAGS += -DDEBUG -O0
 debug: all
@@ -19,14 +23,14 @@ release: CFLAGS += -O3
 release: all
 
 ${EXEC}: ${OBJ}
-	@g++ $^ -o $@ ${LDFLAGS}
+	@g++ ${addprefix build/objs/,${notdir $^}} -o build/$@ ${LDFLAGS}
 	$(info [  LINKER  ] Linking finished.)
 
 %.o: %.cpp
-	@g++ ${CFLAGS} $^ -o $@
+	@g++ ${CFLAGS} $^ -o ${addprefix build/objs/,${notdir $@}}
 	$(info [ COMPILER ] $^)
 
 clear: clean
 clean:
-	@rm -rf ${OBJ} ${EXEC}
+	@rm -rf build/ ${EXEC}
 	$(info [  REMOVE  ] Removed object files and executable (if available).)
