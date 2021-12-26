@@ -10,6 +10,8 @@ HDR = ${wildcard src/*.hpp}
 OBJ = ${SRC:.cpp=.o}
 EXEC = reddy
 
+.PHONY: folders debug release clear clean
+
 all: folders ${OBJ} ${EXEC} ${HDR}
 
 folders:
