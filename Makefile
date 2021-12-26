@@ -25,7 +25,7 @@ release: CFLAGS += -O3
 release: all
 
 ${EXEC}: ${OBJ}
-	@g++ ${addprefix build/objs/,${notdir $^}} -o build/$@ ${LDFLAGS}
+	@g++ ${addprefix build/objs/,${notdir $^}} -o $@ ${LDFLAGS}
 	$(info [  LINKER  ] Linking finished.)
 
 %.o: %.cpp
