@@ -1,7 +1,7 @@
 #ifndef _REDDY_GAME_HPP
 #define _REDDY_GAME_HPP
 
-#include "State.hpp"
+#include <states/GameState.hpp>
 
 class Game {
 public:
@@ -15,13 +15,16 @@ public:
     void run();
 
 private:
-    sf::RenderWindow *sfWindow;
+    sf::RenderWindow* sfWindow;
     sf::Event sfEvent;
     sf::Clock sfDtClock;
 
     float dt;
 
+    std::stack<State*> states;
+
     void initWindow();
+    void initStates();
 };
 
 #endif /* _REDDY_GAME_HPP */
