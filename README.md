@@ -3,7 +3,7 @@ c++ sfml game that is pretty pogger but has garbage graphics because i literally
 
 ## why program no runny???
 
-you need to create a `settings.ini` in the root directory of the project
+you need to create a `settings.ini` in the `config/` directory of the project
 
 sample `settings.ini`:
 ```ini
